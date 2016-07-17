@@ -1,0 +1,49 @@
+<h2>Angular Typescript Form - Angular 2</h2>
+<form (ngSubmit)="onSubmit(carForm.value)" #carForm="ngForm">
+
+    <div class="form-group">
+        <label class="col-xs-2 control-label" for="greenCarName">Green car name : </label>
+        <div class="col-xs-10">
+            <input type="text" style="width: 300px" class="form-control" required [(ngModel)]="myCar.greenCarName" ngControl="greenCarName" #greenCarName="ngForm">
+            <div [hidden]="greenCarName.valid || greenCarName.pristine" class="alert alert-danger">
+                The Name of green car is required !
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label" for="greenCarColor">Green car color : </label>
+        <div class="col-xs-10">
+            <input type="text" style="width: 300px" class="form-control" required [(ngModel)]="myCar.greenCarColor" ngControl="greenCarColor" #greenCarColor="ngForm">
+            <div [hidden]="greenCarColor.valid || greenCarColor.pristine" class="alert alert-danger">
+                The Color of green car is required !
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label" for="greenCarDoors">Green car doors : </label>
+        <div class="col-xs-10">
+            <input type="number" style="width: 300px" class="form-control" required [(ngModel)]="myCar.greenCarDoors" ngControl="greenCarDoors" #greenCarDoors="ngForm">
+            <div [hidden]="greenCarDoors.valid || greenCarDoors.pristine" class="alert">
+                The number of doors is required !
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-2 control-label">Submitted Data : </label>
+        <div class="col-xs-10">
+            <div [hidden]="!submitted">
+                <span>from angulartypescript.com</span>
+                <textarea style="width: 300px" class="form-control" rows="6">{{data}}</textarea>
+            </div>
+            <div [hidden]="submitted">
+                <span>Edit your Data then click Submit to get Data from : angulartypescript.com</span>
+            </div>
+        </div>
+    </div>
+</form>
